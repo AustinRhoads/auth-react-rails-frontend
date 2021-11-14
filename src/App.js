@@ -17,8 +17,8 @@ function App() {
   const dispatch = useDispatch()
 
 
-  const login_user = (user) => {
-    dispatch(USER_ACTIONS.LOGIN(user))
+  const login_user = (user, functions_object) => {
+    dispatch(USER_ACTIONS.LOGIN(user, functions_object))
   }
 
   const logout_user = () => {
@@ -41,8 +41,8 @@ function App() {
       <Router>
       <Nav logged_in={userStatus.logged_in} logout_user={logout_user}/>
         <Routes>
-          <Route path="/" element={<Home logged_in={userStatus.logged_in} logout_user={logout_user} />} />
-          <Route path="/login" element={<Login login_user={login_user} logged_in={userStatus.logged_in} />} />
+          <Route path="/" element={<Home loading={userStatus.loading} logged_in={userStatus.logged_in} logout_user={logout_user} />} />
+          <Route path="/login" element={<Login login_user={login_user} logged_in={userStatus.logged_in} loading={userStatus.loading} log_in_errors={userStatus.log_in_errors} />} />
         </Routes>
       </Router>
     </div>

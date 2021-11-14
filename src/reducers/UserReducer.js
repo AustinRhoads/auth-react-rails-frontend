@@ -1,19 +1,21 @@
 const initialUserState = {
     user: {},
     logged_in: false,
-    laoding: false,
+    loading: false,
+    log_in_errors: []
 }
 
 const UserReducer = (state = initialUserState, action) => {
 
     switch(action.type){
         case "LOGGING_IN":
-            return{...state, loading: true}
+            return{...state, loading: true, log_in_errors: []}
         case "LOGIN":
-            return {...state, logged_in: true,  laoding: false};
+            return {...state, logged_in: true, user: action.user,  loading: false, log_in_errors: []};
         case "LOGOUT":
-
-            return {...state, logged_in:false}
+            return {...state, user: {}, logged_in:false, log_in_errors: []}
+        case "ERROR":
+            return {...state, user: {}, logged_in: false,  loading: false, log_in_errors: action.log_in_errors}
         default:
             return state;
     }

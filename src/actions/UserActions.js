@@ -4,8 +4,10 @@ const ACTION_ROUTES ={
 
 
 
+
 const USER_ACTIONS ={
-    LOGIN:  (user) => {
+
+    LOGIN:  (user, functions_object) => {
         return(dispatch) => {
 
             dispatch({type: "LOGGING_IN"});
@@ -34,16 +36,19 @@ const USER_ACTIONS ={
                  .then(returned_user_object => {
                      if(returned_user_object.logged_in){
                         dispatch({type: "LOGIN", user: returned_user_object.user});
+                        functions_object.redirect_to_home()
                      } else {
-                        console.log(returned_user_object.errors)
+                         dispatch({type: "ERROR", log_in_errors: returned_user_object.errors})
+                       
                      }
                     
                      
                  })
 
-          
+               
 
         }
+       
         
     },
     LOGOUT: ()  => {
