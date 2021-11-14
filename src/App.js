@@ -14,15 +14,15 @@ function App() {
   
   const userStatus = useSelector(state => state.userStatus)
   const state = useSelector(state => state)
-  const dispatcher = useDispatch()
+  const dispatch = useDispatch()
 
 
-  const login_user = () => {
-    dispatcher(USER_ACTIONS.LOGIN)
+  const login_user = (user) => {
+    dispatch(USER_ACTIONS.LOGIN(user))
   }
 
   const logout_user = () => {
-    dispatcher(USER_ACTIONS.LOGOUT)
+    dispatch(USER_ACTIONS.LOGOUT())
   }
 
 
