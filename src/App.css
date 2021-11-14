@@ -1,11 +1,29 @@
 .App {
   text-align: center;
+ 
+}
+body{
+  background-color: #f7f778;
 }
 
 
 *{
   font-family: 'sugarpunch';
 }
+#Nav {
+  width: 100%;
+  background-color: blueviolet;
+  font-size: 20pt;
+  text-align: justify;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/*.Nav-link{
+
+  
+}*/
 
 @font-face {
   font-family: 'knucledown';

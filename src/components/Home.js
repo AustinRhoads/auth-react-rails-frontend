@@ -5,6 +5,7 @@ function Home(props) {
         <div>
             <h1>Home</h1>
             <h2>{props.logged_in ? "You Logged In":"You Logged Out"}</h2>
+         
         </div>
     )
 }
