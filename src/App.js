@@ -11,17 +11,18 @@ import USER_ACTIONS from './actions/UserActions';
 
 function App() {
 
+  
   const userStatus = useSelector(state => state.userStatus)
   const state = useSelector(state => state)
   const dispatcher = useDispatch()
 
 
   const login_user = () => {
-    dispatcher({type: USER_ACTIONS.LOGIN})
+    dispatcher(USER_ACTIONS.LOGIN)
   }
 
   const logout_user = () => {
-    dispatcher({type: USER_ACTIONS.LOGOUT})
+    dispatcher(USER_ACTIONS.LOGOUT)
   }
 
 
