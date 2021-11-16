@@ -1,6 +1,6 @@
 const initialUserState = {
-    user: {},
-    logged_in: false,
+    user: JSON.parse(localStorage.getItem('user')) || {},
+    logged_in: (localStorage.getItem('logged_in') === "true" ? true:false) || false,
     loading: false,
     log_in_errors: []
 }

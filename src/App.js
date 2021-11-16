@@ -13,6 +13,8 @@ function App() {
 
   
   const userStatus = useSelector(state => state.userStatus)
+  const user = useSelector(state => state.userStatus.user)
+  const logged_in = useSelector(state => state.userStatus.logged_in)
   const state = useSelector(state => state)
   const dispatch = useDispatch()
 
@@ -26,10 +28,12 @@ function App() {
   }
 
 
+
   useEffect(() => {
 
-    console.log(state)
-  }, [userStatus, state])
+    console.log(user)
+    console.log(logged_in)
+  }, [logged_in, user,userStatus, state, userStatus.logged_in])
 
   return (
     <div className="App">
@@ -39,10 +43,10 @@ function App() {
      
      
       <Router>
-      <Nav logged_in={userStatus.logged_in} logout_user={logout_user}/>
+      <Nav logged_in={logged_in} logout_user={logout_user}/>
         <Routes>
-          <Route path="/" element={<Home loading={userStatus.loading} logged_in={userStatus.logged_in} logout_user={logout_user} />} />
-          <Route path="/login" element={<Login login_user={login_user} logged_in={userStatus.logged_in} loading={userStatus.loading} log_in_errors={userStatus.log_in_errors} />} />
+          <Route path="/" element={<Home user={user} loading={userStatus.loading} logged_in={logged_in} logout_user={logout_user} />} />
+          <Route path="/login" element={<Login login_user={login_user} logged_in={logged_in} loading={userStatus.loading} log_in_errors={userStatus.log_in_errors} />} />
         </Routes>
       </Router>
     </div>

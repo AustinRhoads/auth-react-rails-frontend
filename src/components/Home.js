@@ -8,7 +8,7 @@ function Home(props) {
         if(props.loading){
           return  <h2>Loading...</h2>
         } else {
-          return  <h2>{props.logged_in ? "You Logged In":"You Logged Out"}</h2>
+          return  <h2>{props.logged_in ? `You're Logged In ${props.user.username}`:"You Logged Out"}</h2>
         }
 
     }

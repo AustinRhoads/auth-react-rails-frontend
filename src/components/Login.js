@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import cuid from 'cuid'
 
@@ -39,6 +39,10 @@ function Login(props) {
             return props.log_in_errors.map(error => {return <h3 key={cuid} style={{color: "red"}}>{error}</h3>}) 
         }
     }
+
+    useEffect(() => {
+        console.log("login use effect")
+    }, [])
 
     return (
         <div>

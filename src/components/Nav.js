@@ -6,12 +6,14 @@ function Nav(props) {
 
 
     const render_login_or_logout_button = () => {
+
         if(props.logged_in === true){
             return  <Link className="Nav-link log-link" to="/" onClick={props.logout_user}>Logout</Link>
         } else {
             return <Link className="Nav-link log-link" to="/login">Login</Link>
         }
     }
+
 
 
     return (
